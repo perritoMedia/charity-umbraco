@@ -1,0 +1,14 @@
+{
+  "id": "e9b1b5a2-c549-4503-99e0-dfb1a40b157d",
+  "name": "Send email to support@aliciabutler.co.uk when submitted",
+  "form": "ff824bcc-4db7-4613-bae5-8c27c19d10e0",
+  "active": true,
+  "workflowTypeId": "e96badd7-05be-4978-b8d9-b3d733de70a5",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "support@aliciabutler.co.uk",
+    "Subject": "the form Contact Us form was submitted",
+    "Message": "the form Contact Us form was submitted, this is the list of values it contained, you can turn this email off under workflows in Umbraco Contour"
+  },
+  "sortOrder": 0
+}

@@ -1,0 +1,50 @@
+﻿{
+  "gridEditors": [
+
+    {
+      "name": "Headline (H1)",
+      "alias": "headline",
+      "view": "textstring",
+      "icon": "icon-coin",
+      "config": {
+        "style": "font-size: 30px; line-height: 30px; margin-bottom: 8px;",
+        "markup": "<h1>#value#</h1>"
+      }
+    },
+    {
+      "name": "Headline (H2)",
+      "alias": "headlineh2",
+      "view": "textstring",
+      "icon": "icon-coin",
+      "config": {
+        "style": "font-size: 30px;  line-height: 30px; margin-bottom: 8px;",
+        "markup": "<h2 class=\"post-title\">#value#</h2>"
+      }
+    },
+    {
+      "name": "Quote",
+      "alias": "quote",
+      "view": "textstring",
+      "icon": "icon-quote",
+      "config": {
+        "style": "",
+        "markup": "<div class=\"quote\"><blockquote><p>#value#</p></blockquote></div>"
+      }
+    },
+    {
+      "name": "Testimonial",
+      "alias": "testimonial",
+      "view": "textstring",
+      "icon": "icon-quote",
+      "config": {
+        "style": "",
+        "markup": "<section class=\"widget testimonial sidebar\" id=\"testimonial_widget-2\"><h3 class=\"title\">Testimonial</h3><div class=\"testimonial-widget\"><blockquote><div class=\"top-quotes\"></div><p>#value#</p><div class=\"bottom-quotes\"></div></blockquote></div></section>"
+      }
+    }
+
+
+
+
+
+  ]
+}

@@ -1,0 +1,9 @@
+﻿@inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
+
+@if (Model.Items.Any())
+{
+    foreach (var item in Model.Items)
+    {
+        <a href="@item.GetValue("buttonLink")"><input type="submit" name="@item.GetValue("buttonText")" value="@item.GetValue("buttonText")" id="" class="" style="background-color: #@item.GetValue("buttonColour")"></a>
+    }
+}

@@ -1,0 +1,44 @@
+﻿@model JahJirehMVC.Models.ContactFormViewModel
+
+ <form>
+    
+
+
+
+         <p>
+             <asp:Label ID="lblName" runat="server" Text="Your Name"></asp:Label>
+             @Html.TextBoxFor(m => m.Name, new { placeholder = "* Please provide your name" })
+             @*<asp:TextBox ID="name" runat="server" ToolTip="* Please provide your name" CssClass="required"></asp:TextBox>*@
+             <asp:RequiredFieldValidator ID="reqName" runat="server" ErrorMessage="Please provide your name" ControlToValidate="name" Display="Dynamic"></asp:RequiredFieldValidator>
+         </p>
+
+         <p>
+
+             <asp:Label ID="lblEmail" runat="server" Text="Your Email"></asp:Label>
+             @Html.TextBoxFor(m => m.Email, new { placeholder = "* Please provide a valid email address" })
+             @*<asp:TextBox ID="email" runat="server" ToolTip="* Please provide a valid email address" CssClass="required"></asp:TextBox>*@
+             <asp:RequiredFieldValidator ID="reqEmail" runat="server" ErrorMessage="Please provide an email address" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="regexEmail" runat="server" ErrorMessage="Please provide a valid email address"
+                                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="email" Display="Dynamic"></asp:RegularExpressionValidator>
+         </p>
+
+
+         <p>
+             <label for="comment">Your Message</label>
+             @Html.TextBoxFor(m => m.Message, new { placeholder = "* Please provide your message" })
+             @*<asp:TextBox ID="comment" runat="server" CssClass="required" ToolTip="* Please provide your message" TextMode="MultiLine"></asp:TextBox>*@
+             <asp:RequiredFieldValidator ID="reqMessage" runat="server" ErrorMessage="Please provide your message" ControlToValidate="comment" Display="Dynamic"></asp:RequiredFieldValidator>
+         </p>
+
+         <p>
+             <asp:Button ID="btnSubmit" runat="server" Text="Send" CssClass="pp-btn" onclick="btnSubmit_Click" />
+         </p>
+
+     </asp:Panel>
+
+     <asp:Panel ID="panelSuccess" runat="server" AutoUpdateAfterCallBack="true" Visible="false">
+         <div class="content-wrap">
+             <asp:Label ID="lblSuccessMessage" runat="server" Text="" />
+         </div>
+    
+ </form>

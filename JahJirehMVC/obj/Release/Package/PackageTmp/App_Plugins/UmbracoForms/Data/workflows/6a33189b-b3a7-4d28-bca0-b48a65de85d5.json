@@ -1,0 +1,14 @@
+{
+  "id": "6a33189b-b3a7-4d28-bca0-b48a65de85d5",
+  "name": "Send email",
+  "form": "a78d194b-9002-46a5-9052-417320d1f293",
+  "active": true,
+  "workflowTypeId": "e96badd7-05be-4978-b8d9-b3d733de70a5",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "lydia@jah-jireh.org",
+    "Subject": "website enquiry",
+    "Message": "This was just submitted to the website"
+  },
+  "sortOrder": 0
+}

@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterPage.cshtml";
+}
+
+ <asp:Panel runat="server" Visible="true" ID="panelContact" DefaultButton="btnSubmit">
+         <div class="content-wrap">
+             <h2 class="post-title">Contact Us</h2>
+             <h4 class="form-heading">Please get in contact with us if you have any questions or concerns, or, if you prefer email, our address is: <a href="mailto:info@jah-jireh.org">info@jah-jireh.org</a></h4>
+         </div>
+				 
+				 @Html.Action("Index","ContactFormSurface")
+ </asp:Panel>

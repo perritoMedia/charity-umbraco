@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+	  <!-- Footer -->
+ <footer role="contentinfo" class="footer">
+
+            <div class="footer-top">
+
+                @CurrentPage.Site().GetGridHtml("footerGrid")
+
+            </div>
+            <!-- End of .footer-top -->
+
+            <!-- footer-bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+
+                    <p class="copyright">&copy; @DateTime.Now.ToString("yyyy") Jah Jireh . Website Design by <a href="http://www.laurentingle.co.uk" target="_blank"><strong>LT Creative</strong></a>.</p>
+                    <p>Head Office: @Umbraco.Field("address", recursive: true) Phone: @Umbraco.Field("telephone", recursive: true). Fax: @Umbraco.Field("fax", recursive: true). </p>
+
+
+
+
+                </div>
+            </div>
+            <!-- End of .footer-bottom -->
+
+        </footer>
+        <!-- End of Footer -->    

@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var home = CurrentPage.Site(); }
+<nav role="navigation" class="nav main-menu clearfix" id="nav">
+                    <div class="menu-main-menu-container">
+@if (home.Children.Any())
+{
+    @* Get the first page in the children *@
+    var naviLevel = home.Children.First().Level;
+    
+    @* Add in level for a CSS hook *@
+    <ul class="level-@naviLevel clearfix" id="menu-main-menu">            
+        @* For each child page under the home node *@
+        @foreach (var childPage in home.Children)
+        {   
+			
+            if (childPage.Children.Any())
+            {             
+				if (childPage.Name == "Newsletter")
+			{
+			    <li class="@(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
+                    <a href="@childPage.Url">@childPage.Name</a>
+                </li>
+			}
+				else
+				{
+                <li class="has-child @(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
+
+                    	 <a href="@childPage.Url">@childPage.Name</a>
+						@childPages(childPage.Children)
+
+                </li>
+					}
+            } 
+			else
+            {
+                <li class="@(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
+                    <a href="@childPage.Url">@childPage.Name</a>
+                </li>
+            }            
+        }
+    </ul>
+}
+ </div>
+                </nav>
+
+@helper childPages(dynamic pages)
+{
+    @* Ensure that we have a collection of pages *@
+    if (pages.Any())
+    {
+        @* Get the first page in pages and get the level *@
+        var naviLevel = pages.First().Level;
+        
+        @* Add in level for a CSS hook *@
+        <ul class="sublevel level-@(naviLevel) sub-menu">
+            @foreach (var page in pages)
+            {
+                <li>
+                    <a href="@page.Url">@page.Name</a>
+                    
+                    @* if the current page has any children *@
+                    @if (page.Children.Any())
+                    {                        
+                        @* Call our helper to display the children *@
+                        @childPages(page.Children)
+                    }
+                </li>
+            }
+        </ul>
+    }
+}

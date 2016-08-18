@@ -1,0 +1,4 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{ var CQCCode = Model.MacroParameters["CQCCode"];}
+
+<script type="text/javascript" src="//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=@CQCCode&data-host=www.cqc.org.uk&type=location"></script>

@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@*
+    Macro to display a series of images from a media folder.
+
+    How it works:
+        - Confirm the macro parameter has been passed in with a value
+        - Loop through all the media Id's passed in (might be a single item, might be many)
+        - Display any individual images, as well as any folders of images
+
+    Macro Parameters To Create, for this macro to work:
+    Alias:mediaId     Name:Select folder with images    Type:Single Media Picker
+*@
+
+@{ var mediaId = Model.MacroParameters["mediaId"];
+ 	var title = Model.MacroParameters["title"];	
+ }
+            <div class="col-lg-6 col-md-6  col-sm-6  col-xs-6">
+                <article class="format-gallery hentry clearfix">
+                    <header>
+                        <h3 class="post-title">@title</h3>
+                            
+                    </header>
+
+                    <div class="listing-slider">
+
+                        <div class="flex-viewport">
+                            <ul class="slides">
+								
+@{	
+    var media = Umbraco.Media(1174);
+    var selection = media.Children();
+
+    if (selection.Any())
+    {
+ 
+            foreach (var item in selection)
+            {
+                <li>
+                    
+					<a title="" href="@item.umbracoFile" target="_blank">
+                                        <img alt="@item.Name" src="@item.thumbnail" class="img-responsive" draggable="false">
+                                    </a>
+                </li>
+            }
+
+    }
+	
+}
+							
+                                   
+                            </ul>
+                        </div>
+                    </div>
+                        
+                </article>
+            </div>
+           

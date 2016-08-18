@@ -1,0 +1,130 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterPage.cshtml";
+}
+
+@CurrentPage.GetGridHtml("content")
+<!-- start of page content -->
+    <div class="main col-lg-8 col-md-8" role="main">
+        <!-- contact-form -->
+        <section id="contact-form">
+
+            <div class="content-wrap">
+                <h4 class="form-heading">Please register your details for the latest Newsletter releases or, if you prefer email, our address is: <a href="mailto:info@jah-jireh.org">info@jah-jireh.org</a></h4>
+            </div>
+
+               
+            <p>
+
+                <asp:Label ID="fieldNameLbl" runat="server" Text="Name"></asp:Label><br />
+                <input id="fieldName" name="cm-name" type="text" />
+
+            </p>
+            <p>
+                <asp:Label ID="fieldEmailLbl" runat="server" Text="Email"></asp:Label><br />
+                <input id="fieldEmail" name="cm-duoti-duoti" type="email" required />
+
+            </p>
+            <p>
+                <label for="fieldjtdiid">Congregation</label><br />
+                <input id="fieldjtdiid" name="cm-f-jtdiid" type="text" />
+
+            </p>
+            <p>
+                <label for="fieldhdlryu">Address 1</label><br />
+                <input id="fieldhdlryu" name="cm-f-hdlryu" type="text" />
+       
+            </p>
+            <p>
+                <label for="fieldhdlrjl">Address 2</label><br />
+                <input id="fieldhdlrjl" name="cm-f-hdlrjl" type="text" />
+       
+            </p>
+            <p>
+                <label for="fieldjtdiih">Town</label><br />
+                <input id="fieldjtdiih"  runat="server" name="cm-f-jtdiih" type="text" />
+       
+            </p>
+    
+            
+            <p>
+                <label for="fieldhdlrjr">County</label><br />
+                <input id="fieldhdlrjr" name="cm-f-hdlrjr" type="text" />
+       
+            </p>
+            <p>
+                <label for="fieldhdlrjy">Post Code</label><br />
+                <input id="fieldhdlrjy" name="cm-f-hdlrjy" type="text" />
+       
+            </p>
+            <p>
+                <label for="fieldtruyhyh">Country</label><br />
+                <input id="fieldtruyhyh" name="cm-f-truyhyh" type="text" />
+            </p>
+            <p>
+                <label for="fieldhdlrjj">Telephone No</label><br />
+                <input id="fieldhdlrjj" name="cm-f-hdlrjj" type="text" />
+       
+            </p>
+            <p>
+                <label for="fieldhdlrjt">Mobile No</label><br />
+                <input id="fieldhdlrjt" name="cm-f-hdlrjt" type="text" />
+       
+            </p>
+            
+    
+            <p><label>How do you want to receive the newsletter? (You can select more than one checkbox)</label><br />
+                <input id="fieldtruyhiy-0" name="cm-fo-truyhiy" value="4991396" type="checkbox" /> <label for="fieldtruyhiy-0">Email</label><br />
+                <input id="fieldtruyhiy-1" name="cm-fo-truyhiy" value="4991397" type="checkbox" /> <label for="fieldtruyhiy-1">Post</label><br />
+                <input id="fieldtruyhiy-2" name="cm-fo-truyhiy" value="4991398" type="checkbox" /> <label for="fieldtruyhiy-2">Do not send newsletter</label>
+            </p>
+    
+            <p>
+        
+                <asp:Button ID="Button1" runat="server" Text="Submit" PostBackUrl="http://aliciabutler.createsend.com/t/r/s/duoti/" />
+            </p>
+
+
+        </section>
+        <!-- #contact-form -->
+    </div>
+    <!-- end of page content -->
+    <aside class="col-lg-4 col-md-4 sidebar" role="complementary">
+
+  
+  
+        <!-- widget_categories -->
+        <section id="categories-2" class="widget widget_categories">
+            <h3 class="title">Our Newsletter Archive</h3>
+            <ul>
+                @foreach(var post in CurrentPage.Children) 
+				{
+				<li>
+							<a href="@post.newsletterUpload" title="@post.Name" target="_blank">@post.Name</a>
+				</li>
+				}
+				
+            </ul>
+        </section>
+        <!-- End of widget_categories -->
+
+           
+           
+
+        <!-- widget testimonial -->
+        <section id="categories-2" class="widget widget_categories">
+            <h3 class="title">Address</h3>
+            <p> 317 Lytham Road, Warton,
+                Preston, PR4 1TE. <br />Charity registration number is: 1062023</p>
+            <h4>Phone: 01772 633380. </h4>
+            <h4>Fax: 01772 631225.</h4>
+            <h4> <a href="mailto:info@jah-jireh.org">Email: info@jah-jireh.org</a></h4>
+         
+         
+        </section>
+        <!-- End of widget testimonial -->
+
+    </aside>
+		
+		
+	

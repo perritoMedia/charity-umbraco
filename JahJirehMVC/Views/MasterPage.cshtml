@@ -1,0 +1,123 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+	var home = @CurrentPage.Site();
+
+}
+
+<!DOCTYPE html>
+<!--
+    TXT 2.0 by HTML5 UP
+    html5up.net | twitter.com/n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <script src="/scripts/slimmage.settings.js"></script>
+    <script src="/scripts/slimmage.min.js"></script>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@CurrentPage.siteDescription">
+
+    <title>@CurrentPage.Name | @CurrentPage._siteTitle</title>
+     <!-- Define a viewport to mobile devices to use - telling the browser to assume that the page is as wide as the device (width=device-width) and setting the initial page zoom level to be 1 (initial-scale=1.0) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,300,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,300,900' rel='stylesheet' type='text/css'>
+
+    
+    
+    <link href="/css/bootstrap.css" rel="stylesheet" media="all" />
+    <link href="/js/flexslider/flexslider.css" rel="stylesheet" media="all" />
+    <link href="/js/swipebox/swipebox.css" rel="stylesheet" media="all" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/skins/default.css" rel="stylesheet" media="all" />    
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		
+</head>
+
+  <body>
+      <style>
+          img {
+              max-width: 100%;
+          }
+      </style>
+			
+			
+<div class="header-wrapper">
+            <!-- Start Header -->
+    <header role="banner" class="header container">
+        @{ Html.RenderPartial("MainNavigation"); }
+
+
+        <!-- Logo -->
+        @if (Model.Content.GetPropertyValue("logo") != "")
+        {   
+            <div class="logo clearfix">
+                <a href="/" title="@Model.Content.GetPropertyValue("siteTitle", true)">
+                    <img src="@Model.Content.GetPropertyValue("logo", true)" alt="@Model.Content.GetPropertyValue("siteTitle", true) logo" width="140"
+                     height="84">
+                </a>
+            </div>
+        }
+
+       
+
+
+    </header>
+            <!-- End Header -->
+        </div>	
+					
+		
+			<div class="header-bottom-wrapper">
+                @CurrentPage.GetGridHtml("bannerGrid")
+        </div>
+		
+	
+     <div class="page-container container">
+            <div class="row">
+				@RenderBody()
+				</div>
+				</div>
+
+
+			@{ Html.RenderPartial("Footer"); }
+
+   
+    
+    <!-- Javascripts -->
+		<!--Start Cookie Script--> 
+		<script type="text/javascript" charset="UTF-8" src="http://chs03.cookie-script.com/s/9559eda84fd68827fe8975c6769a74f6.js"></script> 
+		<!--End Cookie Script--> 
+    <!-- Respond.js to add IE8 support for media queries -->
+        <!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+               <script src="/js/jquery.min.js"></script>
+        <script src="/js/flexslider/jquery.flexslider-min.js"></script>
+        <script src="/js/swipebox/jquery.swipebox.min.js"></script>
+        <script src="/js/isotope/jquery.isotope.min.js"></script>
+        <script src="/js/jquery.jcarousel.min.js"></script>
+        <script src="/js/jquery.cycle2.min.js"></script>
+        <script src="/js/jquery.validate.min.js"></script>
+        <script src="/js/jquery.form.js"></script>
+        <script src="/js/responsive-nav.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery-twitterFetcher.js"></script>
+        <script src="/js/custom.js"></script>
+  </body>
+</html>

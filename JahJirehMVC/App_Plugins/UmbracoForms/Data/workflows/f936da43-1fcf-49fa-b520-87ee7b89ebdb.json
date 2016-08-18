@@ -1,0 +1,15 @@
+{
+  "id": "f936da43-1fcf-49fa-b520-87ee7b89ebdb",
+  "name": "Send email to info@jah-jireh.org when submitted",
+  "form": "a78d194b-9002-46a5-9052-417320d1f293",
+  "active": true,
+  "workflowTypeId": "e96badd7-05be-4978-b8d9-b3d733de70a5",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "info@jah-jireh.org",
+    "SenderEmail": "",
+    "Subject": "Jah-Jireh Website Enquiry",
+    "Message": "Contact Us form was submitted:"
+  },
+  "sortOrder": 0
+}

@@ -1,0 +1,19 @@
+﻿@inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
+
+
+    @if (Model.Items.Any())
+    {
+    foreach (var item in Model.Items)
+    {
+
+                             <div class="quote">
+                                 <blockquote>
+                                     <p>@item.GetValue("heading1")</p>
+                                     <span class="author"><span class="line left"></span>@item.GetValue("heading2")<span class="line right"></span></span>
+                                 </blockquote>
+                             </div>
+
+
+    }
+
+    }

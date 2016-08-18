@@ -1,0 +1,48 @@
+﻿@model JahJirehMVC.Models.ContactFormViewModel
+@{
+    
+    Layout = "MasterPage.cshtml";
+}
+
+ <asp:Panel runat="server" Visible="true" ID="panelContact" DefaultButton="btnSubmit">
+         <div class="content-wrap"> 
+             <h2 class="post-title">Contact Us</h2>
+             <h4 class="form-heading">Please get in contact with us if you have any questions or concerns, or, if you prefer email, our address is: <a href="mailto:info@jah-jireh.org">info@jah-jireh.org</a></h4>
+         </div>
+				 
+				 @*@Html.Action("Index","ContactFormSurface")*@
+
+     @using (Html.BeginUmbracoForm("Contact", "ContactFormSurface", null, new { @class = "contact-form" }))
+     {
+         @Html.ValidationSummary(true)
+
+         <div>
+             
+             @Html.LabelFor(x => x.Subject)
+             @Html.TextBoxFor(x => x.Subject)
+             @Html.ValidationMessageFor(x => x.Subject)
+
+             @Html.LabelFor(x => x.Message)
+             @Html.TextAreaFor(x => x.Message)
+             @Html.ValidationMessageFor(x => x.Message)
+
+             @Html.LabelFor(x => x.Name)
+             @Html.TextBoxFor(x => x.Name)
+             @Html.ValidationMessageFor(x => x.Name)
+
+             @Html.LabelFor(x => x.Phone)
+             @Html.TextBoxFor(x => x.Phone)
+             @Html.ValidationMessageFor(x => x.Phone)
+
+             @Html.LabelFor(x => x.Email)
+             @Html.TextBoxFor(x => x.Email)
+             @Html.ValidationMessageFor(x => x.Email)
+
+             @Html.HiddenFor(x => x.ThankYouPage)
+
+         </div>
+         <input type="submit" value="Skicka" class="btn-accept" />
+     }
+
+
+ </asp:Panel>

@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{ var home = CurrentPage.Site(); }
+
+
+@{ var mediaId = Model.MacroParameters["MediaId"]; }
+
+
+ <div class="home-flexslider variation-1">
+        <!-- Slider -->
+        <div class="flexslider">
+
+            <ul class="slides">
+                @{
+                var randomImages = Umbraco.TypedMedia(mediaId).Children.RandomOrder().Take(10);
+                int i = 1;
+
+                foreach (var image in randomImages)
+                {
+                <li>
+                    <a title="" href="#">
+                        <img ID="navigationContent_slide@(i)" src="@image.Url"
+                                   draggable="false" />
+                    </a>
+					@if ((string) image.GetPropertyValue("caption") != "")
+					{
+					<p>@image.GetPropertyValue("caption")</p>
+					}
+                </li>i++;
+                }
+                }
+                </ul>
+
+</div>
+        <!-- End Slider -->
+    </div>
+					
+					

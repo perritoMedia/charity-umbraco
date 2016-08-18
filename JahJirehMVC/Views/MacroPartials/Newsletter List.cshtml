@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@{ 
+    var heading = Model.MacroParameters["heading"];
+    int items = Convert.ToInt32(Model.MacroParameters["items"]);
+ }
+
+<section class="widget tabs-widget sidebar" id="tabs_widget-2">
+            <div class="tabbed">
+                @*<ul class="tabs clearfix">
+                    <li class="current">@heading</li>
+                       
+                        
+                </ul>*@
+                <div class="block current">
+                    <ul class="widget-list">
+
+                        @if (items == 0)
+                        {
+                            items = 10;
+                        }
+
+						@foreach(var post in CurrentPage.Site().FirstChild("NewsPage").Children.Where("Visible").Take(@items)) 
+							
+				{
+					<li>
+							<figure>
+                                <a href="@post.newsletterUpload" target="_blank">
+                                    <img alt="@post.Name" class="tabs-thumb wp-post-image" 
+										src="@post.newsletterThumbnail">
+										
+                                </a>
+                            </figure>
+								<h5><a href="@post.newsletterUpload" target="_blank">@post.Name</a></h5>
+							    <span>Issue @post.issue</span>
+						</li>
+					}
+						
+						
+                    </ul>
+                    @if (CurrentPage.Name.Contains("Home"))
+                    {
+                        <a class="pp-btn" href="newsletter">View All Newsletters</a>
+                    }
+
+                </div>
+                    
+                <div class="block">
+                        
+                </div>
+            </div><!-- end of tabbed div -->
+        </section>

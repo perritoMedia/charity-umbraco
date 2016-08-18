@@ -1,0 +1,25 @@
+﻿@using FAQ
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@if (Model.Content.HasProperty("faqlisting") && Model.Content.HasValue("faqlisting"))
+{
+
+<ul>
+    @foreach (var q in Model.Content.GetPropertyValue<FAQListing>("faqlisting").Items)
+
+        {
+        <li>
+            <h3>@q.Question</h3>
+            @q.Answer
+            <p>
+                Categories:
+                @foreach (var category in q.Categories)
+                {
+                @(category != q.Categories.FirstOrDefault() ? string.Format(", {0}", category) : category)
+                }
+            </p>
+        </li>
+        }
+</ul>
+}

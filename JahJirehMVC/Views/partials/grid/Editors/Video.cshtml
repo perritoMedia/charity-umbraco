@@ -1,0 +1,27 @@
+﻿@inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
+
+
+    @if (Model.Items.Any())
+    {
+    foreach (var item in Model.Items)
+    {
+
+
+    <div class="col-lg-6 col-md-6  col-sm-6  col-xs-6">
+        <article class="format-video hentry clearfix">
+            <header>
+                <h3 class="post-title">@item.GetValue("heading")</h3>
+
+            </header>
+            <div class="post-video">
+                <div class="video-wrapper">
+                    <iframe allowfullscreen="" src="@item.GetValue("videoUrl")"></iframe>
+                </div>
+            </div>
+
+        </article>
+    </div>
+
+    }
+
+    }

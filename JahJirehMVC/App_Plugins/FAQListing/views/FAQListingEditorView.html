@@ -1,0 +1,28 @@
+<div ng-controller="faq.listing.editor.controller" class="faq-package">
+	<div ng-repeat="item in model.value.items track by $index" class="question">
+		<div class="control-group umb-control-group">
+			<label class="control-label">Question:</label>
+			<div class="controls controls-row">
+				<input type="text" ng-model="item.question" class="umb-editor umb-textstring textstring" />
+				<div ng-show="!isOnlyQuestion()" class="settings">
+					<button type="button" class="btn btn-small" ng-show="!$first" ng-click="sortItem($index, -1)"><i class="icon-arrow-up"></i></button>
+					<button type="button" class="btn btn-small" ng-show="!$last" ng-click="sortItem($index, 1)"><i class="icon-arrow-down"></i></button>
+					<button type="button" class="btn btn-danger btn-small" ng-click="deleteItem($index)"><i class="icon-trash"></i></button>
+				</div>
+			</div>
+		</div>
+		<div ng-if="rteProperties[$index]">
+			<umb-property property="rteProperties[$index]">
+				<umb-editor model="rteProperties[$index]"></umb-editor>
+			</umb-property>
+		</div>
+		<div ng-if="tagProperties[$index]">
+			<umb-property property="tagProperties[$index]">
+				<umb-editor model="tagProperties[$index]"></umb-editor>
+			</umb-property>
+		</div>
+		<div class="usky-grid">
+			<button type="button" ng-show="$last" ng-click="addItem()" class="iconBox"><i class="icon-add"></i></button>
+		</div>
+	</div>
+</div>

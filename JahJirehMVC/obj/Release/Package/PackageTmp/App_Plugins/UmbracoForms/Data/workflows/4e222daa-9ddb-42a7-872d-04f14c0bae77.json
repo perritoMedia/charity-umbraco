@@ -1,0 +1,14 @@
+{
+  "id": "4e222daa-9ddb-42a7-872d-04f14c0bae77",
+  "name": "Send email to lydia@jah-jireh.org when submitted",
+  "form": "ba69a2b2-d2b6-4eb7-ada7-ecaa1a763f3c",
+  "active": true,
+  "workflowTypeId": "e96badd7-05be-4978-b8d9-b3d733de70a5",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "lydia@jah-jireh.org",
+    "Subject": "the form Contact us was submitted",
+    "Message": "the form Contact us was submitted, this is the list of values it contained, you can turn this email off under workflows in Umbraco Contour"
+  },
+  "sortOrder": 0
+}

@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var home = CurrentPage.Site(); }
+
+ <div class="home-flexslider variation-1">
+        <!-- Slider -->
+        <div class="flexslider">
+
+            <ul class="slides">
+                @{
+                var randomImages = Umbraco.TypedMedia(1123).Children.RandomOrder().Take(10);
+                int i = 1;
+
+                foreach (var image in randomImages)
+                {
+                <li>
+                    <a title="" href="#">
+                        <img ID="navigationContent_slide@(i)" src="@image.Url"
+                                   draggable="false" />
+                    </a>
+					@if ((string) image.GetPropertyValue("caption") != "")
+                {
+                <p class="flex-caption">@image("caption")</p>
+                }
+                </li>i++;
+                }
+                }
+                </ul>
+
+</div>
+        <!-- End Slider -->
+    </div>
+					
+					
+					
+ 

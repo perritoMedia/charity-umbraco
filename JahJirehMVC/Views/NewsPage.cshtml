@@ -1,0 +1,67 @@
+﻿@using System.Drawing.Printing
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterPage.cshtml";
+}
+
+<section class="widget newsletterList sidebar" id="tabs_widget-2">
+    <div class="tabbed">
+
+     
+            
+
+
+@{
+    int i = 0;
+}
+    @foreach (var post in CurrentPage.Site().FirstChild("NewsPage").Children.Where("Visible").Take(1000))
+    {
+
+
+        var division = (i % 4);
+        var divStart = "";
+        //var divEnd = "";
+
+
+
+        if (division == 0)
+        {
+            divStart = "<div class=\"clearfix\" style=\"margin:20px 0\"></div>";
+        }
+
+        @Html.Raw(divStart)
+        <div class="column col-lg-3 col-md-3">
+            <ul class="widget-list">
+
+
+                <li style="border-bottom-style: none;">
+                    <figure>
+                        <a href="@post.newsletterUpload" target="_blank">
+                            <img alt="@post.Name" class="tabs-thumb wp-post-image"
+                                 src="@post.newsletterThumbnail">
+
+                        </a>
+                    </figure>
+                    <h5><a href="@post.newsletterUpload" target="_blank">@post.Name</a></h5>
+                    <span>Issue @post.issue</span><br />
+					<span style="font-size:85%">@post.newsletterByline
+                </li>
+
+
+            </ul>
+        </div>
+
+        i++;
+    }
+
+
+
+
+
+    </div><!-- end of tabbed div -->
+</section>
+
+
+
+
+

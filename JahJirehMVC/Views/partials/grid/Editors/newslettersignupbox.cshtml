@@ -1,0 +1,45 @@
+﻿@inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
+
+@if (Model.Items.Any())
+{
+    foreach (var item in Model.Items)
+    {
+        <div class="header-widget">
+            <!-- wp-email-capture-widget -->
+            <div class="wp-email-capture-widget">
+                <div class="slide_widget_inner">
+                    <h3 class="title">
+                        @item.GetValue("title")
+                    </h3>
+                    <div class="textwidget">
+                        @item.GetValue("content")
+                    </div>
+                    @*<div class="wp-email-capture wp-email-capture-widget wp-email-capture-widget-worldwide"
+                         id="wp_email_capture">
+
+                        <input type="submit" name="campaignmonitorBtn" value="@item.GetValue("buttonText")" id="campaignmonitorBtn" class="wp-email-capture-submit wp-email-capture-widget-worldwide">
+
+                    </div>*@
+						
+<div>
+
+<div class="createsend-button" style="height:27px;display:inline-block;" data-listid="r/31/A02/425/74A8011BA84C4A5F">
+</div>
+<script type="text/javascript">(function () { var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); })();</script>
+
+						</div>
+
+@Umbraco.RenderMacro("NewsletterList", new {heading="Latest Newsletter", items="1"});
+
+
+                    @*<br/>
+                    <div class="textwidget1">
+                        @item.GetValue("bottomLinkText") <a href="~/@item.GetValue("bottomLink")" runat="server">'click here'
+                        </a>.
+                    </div>*@
+                </div>
+            </div>
+            <!-- eND OF .wp-email-capture-widget -->
+        </div>
+    }
+}
